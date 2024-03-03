@@ -2,13 +2,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 class guessGame{
-    private int anjanValue;
+    private int unknownValue;
     private int userValue;
-    private int noOfCount=0;
+    private int noOfGuess=0;
 //contructor
     public guessGame(){
         Random rand=new Random();
-        anjanValue=rand.nextInt(100)+1;
+        unknownValue=rand.nextInt(100)+1;
+    }
+    // setter
+    public void setNumOfGuess(int n){
+        this.noOfGuess=n;
+
+    }
+    // getter
+    public int getNumOfGuess(){
+        return noOfGuess;
     }
     public void takeUserInput(){ //setter
         System.out.println("enter no. ");
@@ -17,19 +26,19 @@ class guessGame{
     
     }
     public boolean isCorrectNumber(){
-        if(anjanValue==userValue){
-             noOfCount++;
+        if(unknownValue==userValue){
+             noOfGuess++;
              System.out.println("u guessed the correct numoner");
             return true;
         }
-        else if(anjanValue>userValue){
+        else if(unknownValue>userValue){
             System.out.println("your is smaller");
-             noOfCount++;
+             noOfGuess++;
             return false;
         }
         else{
             System.out.println("your no is greater");
-            noOfCount++;
+            noOfGuess++;
             return false;
         }
     }
@@ -42,12 +51,12 @@ class guessGame{
 public class Guessing_no_game {
 
     public static void main(String[] args) {
-        guessGame harry=new guessGame();
+        guessGame Dk=new guessGame();
 
 
         while(true){
-            harry.takeUserInput();
-            if( harry.isCorrectNumber()){
+            Dk.takeUserInput();
+            if( Dk.isCorrectNumber()){
 
                 break;
 
@@ -60,6 +69,7 @@ public class Guessing_no_game {
 
 
         }
+        System.out.println("You can guess  "+harry.getNumOfGuess()+"  times");
         
 
         
