@@ -1,20 +1,31 @@
-import java.util.Scanner;
+import java.util.Scanner;  
 
-public class checkprime {
-    public static int primeCheck(int num){
-        if(num%2==0){
-            System.out.print("your number is not prime:");
-        }else{
-            System.out.print("your number is prime:");
-        }
-        return num;
-
-    }
+class HelloWorld {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your number:");
-        int num=sc.nextInt();
-        System.out.println(primeCheck(num));
+        int temp = 0;
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number n:");
+        int n = sc.nextInt(); 
+
+        // A number less than 2 is not a prime number
+        if (n < 2) {
+            System.out.println("not prime number");
+            return;
+        }
+
+        // Check for factors from 2 to n-1
+        for (int i = 2; i <= n-1; i++) {
+            if (n % i == 0) {
+                temp = temp + 1;
+                break; 
+            }
+        }
+
+        if (temp == 0) {
+            System.out.println("prime number");
+        } else {
+            System.out.println("not prime number");
+        }
     }
 }
