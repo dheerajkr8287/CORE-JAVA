@@ -2,7 +2,9 @@ class Library{
     String [] books;
     int no_of_books;
     Library(){
-        
+        System.out.println("---->>>>>>We are come into the Library Management System<------");
+        System.out.println("<=====XXXXXXXXXXXXXXXXX========>");
+        System.out.println("Added  Books are:");
         this.books=new String[100];
         int no_of_books=0;
 
@@ -25,10 +27,13 @@ class Library{
         }
     }
     void issueBook(String book){
+         System.out.println("<=====XXXXXXXXXXXXXXXXX========>");
+         System.out.println("Issued book Are:");
+
         for(int i=0;i<this.books.length;i++){
             
-            if(this.books[i].equals(book)){
-                System.out.println("The book has been Issued are:  "+book);
+           if(this.books[i]==book){
+                System.out.println("the book has been issued are :"+book);
                 this.books[i]=null;
                 return;
             }
@@ -40,6 +45,8 @@ class Library{
     }
 
     void returnBook(String book){
+        System.out.println("<=====XXXXXXXXXXXXXXXXX========>");
+        System.out.println("Return Book Are:");
         addBook(book);
     }
 
