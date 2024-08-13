@@ -1,121 +1,183 @@
-// Doubt:
-
-// In this code I have doubt that ,when we call all the method at a time but any how one of exception is come then below rest of method how we can run .I want that while any of exception is come it print then skip after rest of its below method is run .
-
-
-
 import java.util.Scanner;
-
+class negativeValueException extends Exception{
+    @Override
+    public String toString() {
+        return "Negative value found";
+    }
+    
+}
 class InvalidInputException extends Exception{
     @Override
     public String toString() {
        return "invalid Input can not get 8 & 9 ";
     }
 }
-class ArithmeticException extends Exception{
-    @Override
-    public String toString() {
-       return "invalid input b!==0 ";
-    }
-}
-class MaxInputException extends Exception{
-    @Override
-    public String toString() {
-       return "invalid input a!>100000 ||b!>100000";
-    }
-}
-class MaxMultiplierReachedException extends Exception{
+
+class maxMultiplierReached extends Exception{
     @Override
     public String toString() {
        return "invalid input a!>7000 ||b!>7000";
     }
 }
 
-class CustomCalculator {
+class ArithmeticException extends Exception{
+    @Override
+    public String toString() {
+       return "invalid input b!==0 ";
+    }
+}
 
 
-    double add(double a, double b)throws InvalidInputException,MaxInputException{
-        if(a>100000 || b>100000){
-            
-            throw new MaxInputException();
-            
+class MaxInputException extends Exception{
+    @Override
+    public String toString() {
+       return "invalid input a!>100000 ||b!>100000";
+    }
+}
+
+  public class customCalculator{
+
+
+
+
+
+    // Method to check if input is a number
+    public static boolean isNumeric(String str) {
+        try {
+            //The inputs are converted from strings to double using Double.parseDouble.
+
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
-        if(a==8 || b==9){
+    }
+
+
+   
+    public double Addtion(double a,double b) throws InvalidInputException,MaxInputException{
+        if(a>100000 && b>100000){
+            throw new MaxInputException();
+
+        }
+
+
+        if((a==8 && a==9) || (a==9 && b==8)){
             throw new InvalidInputException();
         }
-    return a+b;
-    
+        return a+b;
+
+
+        
     }
-    double subtract(double a, double b) throws MaxInputException{
-        if(a>100000 || b>100000){
+    public double subtraction(double a,double b) throws negativeValueException,MaxInputException{
+        if(a>100000 && b>100000){
             throw new MaxInputException();
+
         }
-    return a-b;
-    
+
+        if(a-b<0 || a<0 ||b<0){
+            throw  new negativeValueException();
+            
+        }
+
+        return a-b;
+        
     }
-    double multiply(double a, double b) throws MaxInputException,MaxMultiplierReachedException{
-        if(a>100000 || b>100000){
+    public double Multiply(double a,double b) throws maxMultiplierReached,MaxInputException{
+        if(a>100000 && b>100000){
             throw new MaxInputException();
+
         }
+       
         if(a>7000||b>7000){
-            throw new MaxMultiplierReachedException();
+            throw new maxMultiplierReached();
 
 
         }
     return a*b;
-    
+
+        
     }
-    double divide(double a, double b)throws ArithmeticException ,MaxInputException {
+    public double divide(double a,double b) throws ArithmeticException,MaxInputException{
         if(a>100000 || b>100000){
             throw new MaxInputException();
         }
         if(b==0){
-            try{
+            throw new ArithmeticException();
 
-                throw new ArithmeticException();
-            }
-            catch(Exception e){
-                System.out.println(e);
-            }
         }
         return a/b;
     
+        
     }
-} 
-
-public class custom_calculator{
-    public static void main(String[] args) throws InvalidInputException,ArithmeticException,MaxInputException,MaxMultiplierReachedException{
-        /*
-        Exercise 6: You have to create a custom calculator with following operations:
-        1. + -> Addition
-        2. - -> Subtraction
-        3. * -> Multiplication
-        4. / -> Division
-        which throws the following exceptions:
-        1. Invalid input Exception ex: 8 & 9
-        2. Cannot divide by 0 Exception
-        3. Max Input Exception if any of the inputs is greater than 100000
-        4. Max Multiplier Reached Exception - Don't allow any multiplication input to be greater than 7000
-         */
+    public static void main(String[] args) throws InvalidInputException,negativeValueException,maxMultiplierReached,MaxInputException,ArithmeticException{
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the value of a:");
+        customCalculator c=new customCalculator();
+
+       /*  System.out.println("Enter the value of a:");
         double a=sc.nextDouble();
         System.out.println("Enter the value of b:");
         double b=sc.nextDouble();
 
-         CustomCalculator  c=new CustomCalculator();
-         System.out.println("Addition:"+c.add(a,b));
-         System.out.println("Subtraction:"+c.subtract(a,b));
-         System.out.println("Multiply:"+c.multiply(a,b));
-         System.out.println("division:"+c.divide(a,b));
-        
+        System.out.println("addition:"+c.Addtion(a, b));
+        System.out.println("Subtraction:"+c.subtraction(a,b));
+        System.out.println("Multiply:"+c.Multiply(a,b));
+        System.out.println("division:"+c.divide(a,b)); */
 
 
 
-        
+        try {
+            System.out.println("Enter the value of a:");
+            String inputA = sc.next();
+            System.out.println("Enter the value of b:");
+            String inputB = sc.next();
+
+            if (!isNumeric(inputA) || !isNumeric(inputB)) {
+                throw new InvalidInputException();
+            }
+            double a = Double.parseDouble(inputA);
+            double b = Double.parseDouble(inputB);
 
 
+            System.out.println("Addition: " + c.Addtion(a, b));
+            System.out.println("Subtraction: " + c.subtraction(a, b));
+            System.out.println("Multiply: " + c.Multiply(a, b));
+            System.out.println("Division: " + c.divide(a, b));
 
-        
+        } catch (InvalidInputException | negativeValueException | maxMultiplierReached | MaxInputException | ArithmeticException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e);
+        } finally {
+            sc.close();
+        }
     }
-}
+  
+               
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//example of parse() method
+
+    //string str="12";
+    // int num3=Integer.parseInt(str);
+     //System.out.println(num3*2);
