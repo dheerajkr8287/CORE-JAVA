@@ -1,0 +1,8 @@
+1:for compiled:javac Harry.Java
+2:Interpreted:java Harry
+
+//way to create pacakage by terminal command
+
+3:create a package using:  javac -d . *.java
+4:javac -d harry.java
+5:javac -d abc *.java
