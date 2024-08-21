@@ -1,0 +1,167 @@
+
+ArrayList:
+
+
+
+--> add(int index, E element):Inserts the specified element at the specified position in this list.
+--> get(int index) :Returns the element at the specified position in this list.
+-->size() :Returns the number of elements in this list.
+
+-->addAll(int index, Collection<? extends E> c)
+Inserts all of the elements in the specified collection into this list, starting at the specified position
+
+-->
+clear():
+Removes all of the elements from this list.
+
+-->contains(Object o):
+Returns true if this list contains the specified element.
+
+
+-->indexOf(Object o)
+Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+
+
+--> E   remove(int index):
+Removes the element at the specified position in this list.
+
+-->boolean
+remove(Object o)
+Removes the first occurrence of the specified element from this list, if it is present.
+
+
+
+-->set(int index, E element)
+Replaces the element at the specified position in this list with the specified element.
+
+
+-->clone()
+Returns a shallow copy of this ArrayList instance.
+
+-->isEmpty()
+Returns true if this list contains no elements.
+
+-->hashCode();//Returns the hash code value for this list.
+
+
+-->
+removeRange(int fromIndex, int toIndex)
+Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
+
+-->
+subList(int fromIndex, int toIndex)
+Returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive.
+
+
+-->toArray()
+Returns an array containing all of the elements in this list in proper sequence (from first to last element).
+The toArray() method returns an array containing all of the items in the list.
+
+-->The trimToSize() method reduces the capacity of a list to fit exactly the number of items that the list contains.
+
+This method does not have a visible effect but it can can be used to reduce the memory usage of the list.
+
+When an ArrayList is created, capacity for 10 items is reserved unless another number is specified in the constructor. Even if the list does not have 10 items, this space is still reserved. Removing items from a list may leave the space for those items reserved. When you are not using of the capacity of an ArrayList then there is some wasted memory which can accumulate if your program makes use of many ArrayLists. You can use the trimToSize() method to recover the unused memory
+
+
+
+
+
+
+
+
+
+
+-->            LINKED-list  
+
+: (most of method is similar to the method of  ArrayList)
+
+
+
+-->addFirst(E e):
+Inserts the specified element at the beginning of this list.
+
+-->addLast(E e)
+Appends the specified element to the end of this list.
+
+
+-->-->lastIndexOf
+public int lastIndexOf(Object o)
+Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+
+
+-->peek:
+public E peek()
+Return Value : 
+  This method returns the head of this list, or null if this list is empty.
+
+
+
+-->poll()://Retrieves and removes the head (first element) of this list.and print rest of list element
+
+
+-->offer
+public boolean offer(E e)
+Adds the specified element as the tail (last element) of this list.
+
+-->offerFirst
+public boolean offerFirst(E e)
+Inserts the specified element at the front of this list.
+
+
+-->offerLast
+public boolean offerLast(E e)
+Inserts the specified element at the end of this list.
+
+
+-->peekLast
+public E peekLast()
+Retrieves, but does not remove, the last element of this list, or returns null if this list is empty.
+
+
+-->pollFirst
+public E pollFirst()
+Retrieves and removes the first element of this list, or returns null if this list is empty.
+
+-->push
+public void push(E e)
+Pushes an element onto the stack represented by this list. In other words, inserts the element at the front of this list.
+This method is equivalent to addFirst(E).
+
+
+
+
+-->pop
+public E pop()
+Pops an element from the stack represented by this list. In other words, removes and returns the first element of this list.
+This method is equivalent to removeFirst().
+
+-->removeFirstOccurrence
+public boolean removeFirstOccurrence(Object o)
+Removes the first occurrence of the specified element in this list (when traversing the list from head to tail). If the list does not contain the element, it is unchanged
+
+-->removeLastOccurrence
+public boolean removeLastOccurrence(Object o)
+Removes the last occurrence of the specified element in this list (when traversing the list from head to tail). If the list does not contain the element, it is unchanged.
+
+
+
+-->hasNext() Method:
+Purpose: The hasNext() method checks if there are more elements left in the HashSet to iterate over.
+Return Type: It returns a boolean value:
+true if there are more elements.
+false if all elements have been iterated over.
+
+
+-->next() Method
+Purpose: The next() method returns the next element in the HashSet and moves the iterator forward to the subsequent element.
+Return Type: It returns the next element in the HashSet.
+
+
+
+-->-------------HashMap----------<------
+
+
+-->HashMap in Java is part of the java.util package and is one of the most widely used data structures for storing key-value pairs. It's based on the hash table data structure and provides fast retrieval of data using a key.
+
+-->
