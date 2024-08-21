@@ -1,0 +1,73 @@
+1. catch(Exception e)
+Catches All Exceptions: Using catch(Exception e) will catch any type of exception that is a subclass of Exception, including InterruptedException and other types of exceptions such as IOException, NullPointerException, RuntimeException, etc.
+Generic Error Handling: This approach is more general and catches a broad range of exceptions. It's useful when you want a common error handling strategy for different types of exceptions.
+Example:
+
+java
+Copy code
+try {
+    // Code that may throw exceptions
+    // ...
+} catch (Exception e) {
+    System.out.println("An exception occurred: " + e);
+}
+2. catch(InterruptedException e)
+Specific Exception Handling: Using catch(InterruptedException e) specifically catches InterruptedException instances. This is important when dealing with threading operations like wait() and sleep(), where interruption is a common occurrence.
+Targeted Error Handling: This approach is more focused and ideal when you need to handle interruptions or specific types of exceptions differently from other exceptions.
+Example:
+
+java
+Copy code
+try {
+    // Code that may throw InterruptedException
+    // ...
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+
+
+
+
+// IllegalArgumentException - if the value of millis is negative, or the value of nanos is not in the range 0-999999
+
+
+// InterruptedException - if any thread has interrupted the current thread. The interrupted status of the current thread is cleared when this exception is thrown.
+
+
+
+How to Decide:
+Identify Expected Exceptions: Determine which specific exceptions your code may encounter. If you expect to handle interruptions (e.g., due to threading operations), use catch(InterruptedException e) to handle InterruptedException instances.
+
+Generic vs. Specific Handling: Choose catch(Exception e) for generic error handling across various types of exceptions. Use catch(InterruptedException e) for targeted handling of interruptions or specific exceptions related to threading.
+
+Consider Context: Understand the context in which exceptions may occur. If you're working with threads and synchronization, be prepared to handle interruptions appropriately using catch(InterruptedException e).
+
+Avoid Unnecessary Generality: While catch(Exception e) catches all exceptions, it can sometimes lead to less specific error handling. Try to use more specific catch blocks (catch(InterruptedException e)) whenever possible for clearer and more robust exception handling.
+
+
+
+
+###############________________------------------_______________######################
+
+
+A thread state. A thread can be in one of the following states:
+NEW
+A thread that has not yet started is in this state.
+RUNNABLE
+A thread executing in the Java virtual machine is in this state.
+BLOCKED
+A thread that is blocked waiting for a monitor lock is in this state.
+WAITING
+A thread that is waiting indefinitely for another thread to perform a particular action is in this state.
+TIMED_WAITING
+A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.
+TERMINATED
+A thread that has exited is in this state.
+
+
+
+
+currentThread:
+public static Thread currentThread()
+Returns the Thread object for the current thread.
+Returns:the current thread
