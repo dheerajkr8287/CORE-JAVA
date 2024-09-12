@@ -1,4 +1,4 @@
-# Java-Programming----DSA
+# <--Java-Programming-->
 This repo contains Java programs demonstrating language basics and OOP concepts as well as implementations of common data structures and algorithms.
 <br>
 <h2>Java Programs</h2>
